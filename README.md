@@ -1,1 +1,3 @@
-This repository hosts my web project.
+v1.0 初始版本
+v1.1 加入复选排序、自定义标签功能；
+v1.2 细分卡牌效果、优化ui、部分错误修改；
