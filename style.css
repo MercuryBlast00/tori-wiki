@@ -23,7 +23,7 @@ body {
     line-height: 1.6;
 }
 
-/* 导航：连体分段，方角 */
+
 .navbar { display: flex; justify-content: center; margin-bottom: 24px; }
 .nav-btn {
     background: var(--surface);
@@ -38,7 +38,7 @@ body {
 .nav-btn:hover { background: var(--surface-3); }
 .nav-btn.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
 
-/* 视图切换：无动画 */
+
 .view-section { display: none; }
 .view-section.active-view { display: block; }
 
@@ -46,7 +46,7 @@ body {
 .header h1 { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
 .header p { color: var(--text-mute); font-size: 13px; }
 
-/* 面板 */
+
 .search-panel, .ban-panel {
     background: var(--surface);
     margin-bottom: 14px;
@@ -65,7 +65,7 @@ body {
 .panel-body { padding: 16px; }
 .panel-body.hidden { display: none; }
 
-/* 筛选区 */
+
 .filter-group { display: flex; gap: 12px; margin-bottom: 14px; }
 input[type="text"] {
     flex: 1;
@@ -82,7 +82,7 @@ input[type="text"]:focus { border-color: var(--accent); }
 
 .checkbox-filter-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
 
-/* 左侧标签列：宽度固定 130px，文字和按钮两端对齐 */
+
 .filter-label {
     font-size: 13px;
     color: var(--text-dim);
@@ -97,7 +97,7 @@ input[type="text"]:focus { border-color: var(--accent); }
 
 .checkbox-grid-small, .checkbox-grid { display: flex; flex-wrap: wrap; gap: 6px; }
 
-/* 排序按钮 */
+
 .sort-btn {
     background: none;
     border: 1px solid var(--border);
@@ -110,7 +110,7 @@ input[type="text"]:focus { border-color: var(--accent); }
 }
 .sort-btn:hover { color: var(--text); border-color: var(--border-strong); }
 
-/* 复选框标签 */
+
 .checkbox-label {
     display: flex;
     align-items: center;
@@ -128,11 +128,11 @@ input[type="text"]:focus { border-color: var(--accent); }
 .checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--accent); }
 .checkbox-label input:checked + span { color: var(--text); font-weight: 600; }
 
-/* 结果计数 */
+
 .result-bar { text-align: right; margin-bottom: 10px; padding: 0 4px; }
 .result-count { font-size: 12px; color: var(--text-mute); }
 
-/* 控制按钮：分段，方角 */
+
 .ban-controls { display: flex; justify-content: space-between; margin-bottom: 14px; gap: 12px; flex-wrap: wrap; }
 .control-group { display: flex; border: 1px solid var(--border); }
 .toggle-btn {
@@ -148,7 +148,7 @@ input[type="text"]:focus { border-color: var(--accent); }
 .toggle-btn:hover { background: var(--surface-3); }
 .toggle-btn.active { background: var(--accent); color: var(--accent-text); font-weight: 600; }
 
-/* Ban 分组标题：与图鉴区排序按钮对齐 */
+
 .ban-group { margin-bottom: 14px; }
 .ban-group:last-child { margin-bottom: 0; }
 .ban-group h3 {
@@ -163,10 +163,10 @@ input[type="text"]:focus { border-color: var(--accent); }
     white-space: nowrap;
 }
 
-/* 卡牌网格：更紧凑 */
+
 .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
 
-/* 详细卡牌 */
+
 .card {
     background: var(--surface);
     border-radius: 0;
@@ -241,7 +241,7 @@ input[type="text"]:focus { border-color: var(--accent); }
 }
 .add-tag-btn:hover { color: var(--text); border-color: var(--border-strong); }
 
-/* 效果描述：文字加深、行高放大，阅读重点 */
+
 .card-effect {
     font-size: 13px;
     color: var(--text-dim);
@@ -339,7 +339,7 @@ input[type="text"]:focus { border-color: var(--accent); }
 .effect-normal strong { font-weight: 600; color: var(--text-mute); font-size: 12px; }
 .effect-advanced strong { font-weight: 600; color: #a87a20; font-size: 12px; }
 
-/* 效果类型颜色 */
+
 .effect-type { font-weight: 600; }
 .effect-type[data-type="经济"] { color: #3a7a4a; }
 .effect-type[data-type="招募"] { color: #6a3a8a; }
@@ -349,7 +349,7 @@ input[type="text"]:focus { border-color: var(--accent); }
 .effect-type[data-type="叠层加成"] { color: #2f8a8a; }
 .effect-type[data-type="其他"] { color: #777; }
 
-/* ================= 游戏原生等阶颜色（颜色值未改动） ================= */
+
 .card[data-tier="Ⅰ"] { border-top-color: #827D7A; }
 .card-simple[data-tier="Ⅰ"] { border-left-color: #827D7A; }
 .card[data-tier="Ⅱ"] { border-top-color: #d6d6d6; }

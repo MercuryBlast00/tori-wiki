@@ -2,13 +2,10 @@
 let allCards = [];
 const tierNames = ["Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ"];
 
-// 效果类型分类表：key 是干员名，value 是分类数组
-// 未来想给任何卡加类型，往 EFFECT_TYPE_OVERRIDES 里加一行即可
 const EFFECT_TYPE_OVERRIDES = {
     "逻各斯": ["叠层", "战斗"],
 };
 
-// 旧数据里 effect_type 为"其他"的卡，按名字重新归类
 const OTHER_TYPE_MAP = {
     "酒神": ["道具"],
     "机械师": ["招募"],
@@ -71,7 +68,7 @@ let userTagsData = JSON.parse(localStorage.getItem('cardUserTags')) || {};
 const wikiContainer = document.getElementById('wiki-card-container');
 const banContainer = document.getElementById('ban-card-container');
 
-// ================= 1. 页面切换 & 折叠 =================
+// 页面切换 & 折叠
 document.getElementById('tab-wiki').addEventListener('click', () => {
     document.getElementById('tab-wiki').classList.add('active');
     document.getElementById('tab-ban').classList.remove('active');
@@ -93,7 +90,7 @@ document.querySelectorAll('.fold-btn').forEach(btn => {
     });
 });
 
-// ================= 2. 排序弹窗逻辑 =================
+// 排序弹窗逻辑 
 let currentSortContainerId = null;
 
 window.openSortModal = function(containerId, title) {
@@ -139,10 +136,10 @@ window.moveDown = function(btn) {
 };
 
 document.querySelector('.close-modal-btn').addEventListener('click', () => {
-    // 1. 获取弹窗里的新顺序
+    // 获取新顺序
     const newOrder = Array.from(document.querySelectorAll('#sort-list .sort-item')).map(item => item.getAttribute('data-value'));
     
-    // 2. 同步更新到页面 DOM 上
+    // 同步更新
     const container = document.getElementById(currentSortContainerId);
     const elements = Array.from(container.children);
     container.innerHTML = '';
@@ -152,10 +149,10 @@ document.querySelector('.close-modal-btn').addEventListener('click', () => {
         if (el) container.appendChild(el);
     });
     
-    // 3. 保存到 localStorage
+    // 保存到 localStorage
     localStorage.setItem(`order_${currentSortContainerId}`, JSON.stringify(newOrder));
     
-    // 4. 关闭弹窗
+    
     document.getElementById('sort-modal').classList.add('hidden');
 });
 
@@ -166,12 +163,12 @@ function initSavedSorting(containerId) {
     if (savedOrder && container) {
         const elements = Array.from(container.children);
         container.innerHTML = '';
-        // 先把保存的塞进去
+        
         savedOrder.forEach(val => {
             const el = elements.find(e => e.querySelector('input').value === val);
             if (el) container.appendChild(el);
         });
-        // 再把新加的（没在保存列表里的）追加到后面
+        
         elements.forEach(el => {
             if (!savedOrder.includes(el.querySelector('input').value)) {
                 container.appendChild(el);
@@ -180,7 +177,7 @@ function initSavedSorting(containerId) {
     }
 }
 
-// ================= 3. 加载数据 =================
+// 加载数据
 async function loadData() {
     for (let i = 1; i <= 6; i++) {
         try {
@@ -205,7 +202,7 @@ async function loadData() {
     updateBanResult();
 }
 
-// ================= 4. 选项渲染 =================
+// 选项渲染 
 let allOptions = { tiers: [], mains: [], subs: [], phases: [], types: [], usertags: [] };
 
 function extractAllOptions() {
@@ -265,9 +262,9 @@ function initFilters() {
     });
 }
 
-// ================= 5. 渲染模板 =================
+// 渲染模板 
 function createCardHTML(card, isSimple = false) {
-    // 简略视图带标签
+    // 简略视图
     if (isSimple) {
         const tagsHTML = card.userTags.map(tag => `<span class="user-tag-simple">${tag}</span>`).join('');
         return `
@@ -365,7 +362,7 @@ function renderCards(cardsToShow, container, countId, isSimple = false) {
     cardsToShow.forEach(card => { container.innerHTML += createCardHTML(card, isSimple); });
 }
 
-// ================= 6. 过滤逻辑 =================
+// 检索
 function matchFilters(card, filters) {
     if (filters.tiers.length > 0 && !filters.tiers.includes(card.tier)) return false;
     if (filters.mains.length > 0 && !card.main_attrs.some(a => filters.mains.includes(a))) return false;
@@ -456,5 +453,5 @@ document.getElementById('btn-view-simple').addEventListener('click', (e) => {
 
 document.getElementById('ban-search-name').addEventListener('input', updateBanResult);
 
-// 启动！
+
 loadData();
