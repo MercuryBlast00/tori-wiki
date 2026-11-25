@@ -1,0 +1,434 @@
+[
+  {
+    "name": "黑键",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": ["莱塔尼亚"],
+    "sub_attrs": ["精准"],
+    "effect": {
+      "normal": "<战斗中>攻击范围内每有一名敌人被击倒使已激活的【莱塔尼亚】【精准】层数+1（每回合至多叠加8层）",
+      "advanced": "<战斗中>攻击范围内每有一名敌人被击倒使已激活的【莱塔尼亚】【精准】层数+2（每回合至多叠加16层）"
+    },
+    "stacking": {
+      "normal": { "target": ["莱塔尼亚", "精准"], "stable": 1, "cap": 8 },
+      "advanced": { "target": ["莱塔尼亚", "精准"], "stable": 2, "cap": 16 }
+    }
+  },
+  {
+    "name": "艾雅法拉",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": ["莱塔尼亚"],
+    "sub_attrs": ["奥术"],
+    "effect": {
+      "normal": "<战斗中>【莱塔尼亚】【奥术】每叠加2层，本干员技力自然回复速度+0.02/秒，攻击力+1%",
+      "advanced": "<战斗中>【莱塔尼亚】【奥术】每叠加1层，本干员技力自然回复速度+0.02/秒，攻击力+1%"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "赫拉格",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": ["乌萨斯"],
+    "sub_attrs": ["突袭"],
+    "effect": {
+      "normal": "<战斗中>部署时使已激活的【乌萨斯】【突袭】层数+4（每场战斗至多叠加12层）",
+      "advanced": "<战斗中>部署时使已激活的【乌萨斯】【突袭】层数+8（每场战斗至多叠加24层）"
+    },
+    "stacking": {
+      "normal": { "target": ["乌萨斯", "突袭"], "stable": 4, "cap": 12 },
+      "advanced": { "target": ["乌萨斯", "突袭"], "stable": 8, "cap": 24 }
+    }
+  },
+  {
+    "name": "维伊",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": ["乌萨斯"],
+    "sub_attrs": ["奥术"],
+    "effect": {
+      "normal": "<战斗中>【乌萨斯】每叠加2层，本干员攻击速度+1",
+      "advanced": "<战斗中>【乌萨斯】每叠加1层，本干员攻击速度+1"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "温蒂",
+    "tier": "Ⅳ",
+    "phase": "无",
+    "effect_type": "其他",
+    "main_attrs": ["伊比利亚"],
+    "sub_attrs": ["坚守"],
+    "effect": {
+      "normal": "售出价格为3",
+      "advanced": "售出价格为6"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "流明",
+    "tier": "Ⅳ",
+    "phase": "战斗结束时",
+    "effect_type": "叠层",
+    "main_attrs": ["伊比利亚"],
+    "sub_attrs": ["聚合"],
+    "effect": {
+      "normal": "<战斗结束时>每有一名存活的我方干员，使已激活的【伊比利亚】【聚合】层数+1",
+      "advanced": "<战斗结束时>每有一名存活的我方干员，使已激活的【伊比利亚】【聚合】层数+2"
+    },
+    "stacking": {
+      "normal": { "target": ["伊比利亚", "聚合"], "stable": 1, "cap": null },
+      "advanced": { "target": ["伊比利亚", "聚合"], "stable": 2, "cap": null }
+    }
+  },
+  {
+    "name": "余",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": ["炎"],
+    "sub_attrs": ["坚守"],
+    "effect": {
+      "normal": "<战斗中>周围八格每有一名敌人触发元素损伤爆发使自身已激活的盟约层数+1（每回合至多叠加8层）",
+      "advanced": "<战斗中>周围八格每有一名敌人触发元素损伤爆发使自身已激活的盟约层数+2（每回合至多叠加16层）"
+    },
+    "stacking": {
+      "normal": { "target": ["动态"], "stable": 1, "cap": 8 },
+      "advanced": { "target": ["动态"], "stable": 2, "cap": 16 }
+    }
+  },
+  {
+    "name": "森蚺",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": ["萨尔贡"],
+    "sub_attrs": ["不屈"],
+    "effect": {
+      "normal": "<战斗中>部署时使已激活的【萨尔贡】【不屈】盟约层数+4（每回合至多叠加12层）",
+      "advanced": "<战斗中>部署时使已激活的【萨尔贡】【不屈】盟约层数+8（每回合至多叠加24层）"
+    },
+    "stacking": {
+      "normal": { "target": ["萨尔贡", "不屈"], "stable": 4, "cap": 12 },
+      "advanced": { "target": ["萨尔贡", "不屈"], "stable": 8, "cap": 24 }
+    }
+  },
+  {
+    "name": "灵知",
+    "tier": "Ⅳ",
+    "phase": "获得时",
+    "effect_type": "其他",
+    "main_attrs": ["谢拉格"],
+    "sub_attrs": ["迅捷"],
+    "effect": {
+      "normal": "<获得时>获得一次特殊刷新，下次刷新至少出现一名谢拉格干员",
+      "advanced": "<获得时>获得一次特殊刷新，下次刷新至少出现两名谢拉格干员"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "归溟幽灵鲨",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": ["阿戈尔"],
+    "sub_attrs": ["不屈"],
+    "effect": {
+      "normal": "<战斗中>自身被击倒或与替身发生替换时使周围八格的【阿戈尔】干员回复5点技力",
+      "advanced": "<战斗中>自身被击倒或与替身发生替换时使周围八格的【阿戈尔】干员回复10点技力"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "水月",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": ["阿戈尔"],
+    "sub_attrs": ["灵巧"],
+    "effect": {
+      "normal": "<战斗中>【阿戈尔】盟约每叠加20层，自身及周围四格干员每次造成伤害时使目标移动速度-1%，持续3秒",
+      "advanced": "<战斗中>【阿戈尔】盟约每叠加10层，自身及周围四格干员每次造成伤害时使目标移动速度-1%，持续3秒"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "远牙",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": ["卡西米尔"],
+    "sub_attrs": ["精准"],
+    "effect": {
+      "normal": "<战斗中>攻击范围内每有一名敌人被击倒使攻击范围内及整备区中的干员再部署时间-3秒",
+      "advanced": "<战斗中>攻击范围内每有一名敌人被击倒使攻击范围内及整备区中的干员再部署时间-6秒"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "玛恩纳",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": ["卡西米尔"],
+    "sub_attrs": [],
+    "effect": {
+      "normal": "<战斗中>【卡西米尔】每叠加5层，本干员部署后100秒内基础攻击力+10、基础生命上限+50",
+      "advanced": "<战斗中>【卡西米尔】每叠加5层，本干员部署后100秒内基础攻击力+20、基础生命上限+100"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "涤火杰西卡",
+    "tier": "Ⅳ",
+    "phase": "休整期结束时",
+    "effect_type": "叠层",
+    "main_attrs": ["维多利亚"],
+    "sub_attrs": ["坚守"],
+    "effect": {
+      "normal": "<休整期结束时>场上每有一名携带装备的干员，使已激活的【维多利亚】【坚守】层数+2",
+      "advanced": "<休整期结束时>场上每有一名携带装备的干员，使已激活的【维多利亚】【坚守】层数+4"
+    },
+    "stacking": {
+      "normal": { "target": ["维多利亚", "坚守"], "stable": 2, "cap": null },
+      "advanced": { "target": ["维多利亚", "坚守"], "stable": 4, "cap": null }
+    }
+  },
+  {
+    "name": "白铁",
+    "tier": "Ⅳ",
+    "phase": "进入休整期时",
+    "effect_type": "其他",
+    "main_attrs": ["维多利亚"],
+    "sub_attrs": ["助力"],
+    "effect": {
+      "normal": "<进入休整期时>使自身携带的装备变为精锐版本",
+      "advanced": "<进入休整期时>使自身携带的装备变为精锐版本"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "斥罪",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": ["叙拉古"],
+    "sub_attrs": ["不屈"],
+    "effect": {
+      "normal": "<战斗中>【叙拉古】【不屈】每叠加3层，本干员攻击力+1%",
+      "advanced": "<战斗中>【叙拉古】【不屈】每叠加3层，本干员攻击力+2%"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "W",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": [],
+    "sub_attrs": ["迅捷"],
+    "effect": {
+      "normal": "<战斗中>【迅捷】每叠加3层，本干员攻击力+1%",
+      "advanced": "<战斗中>【迅捷】每叠加3层，本干员攻击力+2%"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "霍尔海雅",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["奥术", "精准"],
+    "effect": {
+      "normal": "<战斗中>每次开启技能时使自身已激活的盟约层数+4（每场战斗至多叠加12层）",
+      "advanced": "<战斗中>每次开启技能时使自身已激活的盟约层数+8（每场战斗至多叠加24层）"
+    },
+    "stacking": {
+      "normal": { "target": ["动态"], "stable": 4, "cap": 12 },
+      "advanced": { "target": ["动态"], "stable": 8, "cap": 24 }
+    }
+  },
+  {
+    "name": "山",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": [],
+    "sub_attrs": ["投资人"],
+    "effect": {
+      "normal": "<战斗中>造成的伤害变为弱点伤害（根据敌人的防御力与法术抗性变换伤害类型）",
+      "advanced": "<战斗中>造成的伤害变为弱点伤害（根据敌人的防御力与法术抗性变换伤害类型）"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "淬羽赫默",
+    "tier": "Ⅳ",
+    "phase": "休整期结束时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["助力"],
+    "effect": {
+      "normal": "<休整期结束时>使整备区每名干员已激活的盟约层数+1",
+      "advanced": "<休整期结束时>使整备区每名干员已激活的盟约层数+2"
+    },
+    "stacking": {
+      "normal": { "target": ["动态"], "stable": 1, "cap": null },
+      "advanced": { "target": ["动态"], "stable": 2, "cap": null }
+    }
+  },
+  {
+    "name": "赫德雷",
+    "tier": "Ⅳ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["突袭"],
+    "effect": {
+      "normal": "<战斗中>部署时使已激活的【突袭】层数+4（每回合至多叠加16层）",
+      "advanced": "<战斗中>部署时使已激活的【突袭】层数+8（每回合至多叠加32层）"
+    },
+    "stacking": {
+      "normal": { "target": ["突袭"], "stable": 4, "cap": 16 },
+      "advanced": { "target": ["突袭"], "stable": 8, "cap": 32 }
+    }
+  },
+  {
+    "name": "夜莺",
+    "tier": "Ⅳ",
+    "phase": "战斗结束时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["聚合", "协防干员"],
+    "effect": {
+      "normal": "<战斗结束时>每有一名存活的我方干员，使自身已激活的盟约层数+1",
+      "advanced": "<战斗结束时>每有一名存活的我方干员，使自身已激活的盟约层数+2"
+    },
+    "stacking": {
+      "normal": { "target": ["动态"], "stable": 1, "cap": null },
+      "advanced": { "target": ["动态"], "stable": 2, "cap": null }
+    }
+  },
+  {
+    "name": "仇白",
+    "tier": "Ⅳ",
+    "phase": "获得时",
+    "effect_type": "叠层",
+    "main_attrs": ["炎"],
+    "sub_attrs": ["灵巧"],
+    "effect": {
+      "normal": "<获得时>【炎】【灵巧】层数+6",
+      "advanced": "<获得时>【炎】【灵巧】层数+12"
+    },
+    "stacking": {
+      "normal": { "target": ["炎", "灵巧"], "stable": null, "cap": null },
+      "advanced": { "target": ["炎", "灵巧"], "stable": null, "cap": null }
+    }
+  },
+  {
+    "name": "异客",
+    "tier": "Ⅳ",
+    "phase": "进入休整期时",
+    "effect_type": "其他",
+    "main_attrs": ["萨尔贡"],
+    "sub_attrs": ["奥术"],
+    "effect": {
+      "normal": "<进入休整期时>获得1件“盟约之币”或“萨尔贡浓茶”，有小概率发现“拟态物质”",
+      "advanced": "<进入休整期时>获得2件“盟约之币”或“萨尔贡浓茶”，有小概率发现“拟态物质”"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "安洁莉娜",
+    "tier": "Ⅳ",
+    "phase": "休整期结束时",
+    "effect_type": "叠层",
+    "main_attrs": ["叙拉古"],
+    "sub_attrs": ["奇迹"],
+    "effect": {
+      "normal": "<休整期结束时>本回合每进行过1次刷新，使已激活的【叙拉古】层数+2（每回合至多叠加8层），【奇迹】层数+1（每回合至多叠加4层）",
+      "advanced": "<休整期结束时>本回合每进行过1次刷新，使已激活的【叙拉古】层数+4（每回合至多叠加16层），【奇迹】层数+2（每回合至多叠加8层）"
+    },
+    "stacking": {
+      "normal": { "target": ["叙拉古", "奇迹"], "stable": 2, "cap": 8 },
+      "advanced": { "target": ["叙拉古", "奇迹"], "stable": 4, "cap": 16 }
+    }
+  },
+  {
+    "name": "华法琳",
+    "tier": "Ⅳ",
+    "phase": "战斗开始时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["灵巧", "聚合"],
+    "effect": {
+      "normal": "<战斗开始时>使身前一名干员获得特质“<开启技能时>使自身已激活的盟约层数+1（每回合至多叠加7层）”",
+      "advanced": "<战斗开始时>使身前一名干员获得特质“<开启技能时>使自身已激活的盟约层数+2（每回合至多叠加14层）”"
+    },
+    "stacking": {
+      "normal": { "target": ["动态"], "stable": 1, "cap": 7 },
+      "advanced": { "target": ["动态"], "stable": 2, "cap": 14 }
+    }
+  },
+  {
+    "name": "寒檀",
+    "tier": "Ⅳ",
+    "phase": ["休整期结束时", "休整期开始时"],
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["远见"],
+    "effect": {
+      "normal": "<休整期结束时><休整期开始时>使已激活的【远见】层数+3",
+      "advanced": "<休整期结束时><休整期开始时>使已激活的【远见】层数+6"
+    },
+    "stacking": {
+      "normal": { "target": ["远见"], "stable": 3, "cap": null },
+      "advanced": { "target": ["远见"], "stable": 6, "cap": null }
+    }
+  }
+]

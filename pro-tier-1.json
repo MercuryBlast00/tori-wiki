@@ -1,0 +1,314 @@
+[
+  {
+    "name": "折桠",
+    "tier": "Ⅰ",
+    "phase": "进入休整期时",
+    "effect_type": "叠层",
+    "main_attrs": ["乌萨斯"],
+    "sub_attrs": ["不屈"],
+    "effect": {
+      "normal": "<进入休整期时>转化2层【乌萨斯】临时层数为固定层数",
+      "advanced": "<进入休整期时>转化4层【乌萨斯】临时层数为固定层数"
+    },
+    "stacking": {
+      "normal": { "target": ["乌萨斯"], "stable": 0, "cap": null },
+      "advanced": { "target": ["乌萨斯"], "stable": 0, "cap": null }
+    },
+    "temp_stacking": {
+      "normal": 0,
+      "advanced": 0
+    }
+  },
+  {
+    "name": "艾丝黛尔",
+    "tier": "Ⅰ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": ["萨尔贡"],
+    "sub_attrs": ["独行"],
+    "effect": {
+      "normal": "<战斗中>每次开启技能时使已激活的【萨尔贡】层数+1（每回合至多叠加2层）",
+      "advanced": "<战斗中>每次开启技能时使已激活的【萨尔贡】层数+2（每回合至多叠加4层）"
+    },
+    "stacking": {
+      "normal": { "target": ["萨尔贡"], "stable": 1, "cap": 2 },
+      "advanced": { "target": ["萨尔贡"], "stable": 2, "cap": 4 }
+    }
+  },
+  {
+    "name": "幽灵鲨",
+    "tier": "Ⅰ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": ["阿戈尔"],
+    "sub_attrs": [],
+    "effect": {
+      "normal": "<战斗中>部署时使已激活的【阿戈尔】层数+1（每回合至多叠加1层）",
+      "advanced": "<战斗中>部署时使已激活的【阿戈尔】层数+2（每回合至多叠加2层）"
+    },
+    "stacking": {
+      "normal": { "target": ["阿戈尔"], "stable": 1, "cap": 1 },
+      "advanced": { "target": ["阿戈尔"], "stable": 2, "cap": 2 }
+    }
+  },
+  {
+    "name": "野鬃",
+    "tier": "Ⅰ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": ["卡西米尔"],
+    "sub_attrs": ["助力"],
+    "effect": {
+      "normal": "<战斗中>部署时使已激活的【卡西米尔】层数+1（每回合至多叠加2层）",
+      "advanced": "<战斗中>部署时使已激活的【卡西米尔】层数+2（每回合至多叠加4层）"
+    },
+    "stacking": {
+      "normal": { "target": ["卡西米尔"], "stable": 1, "cap": 2 },
+      "advanced": { "target": ["卡西米尔"], "stable": 2, "cap": 4 }
+    }
+  },
+  {
+    "name": "慕斯",
+    "tier": "Ⅰ",
+    "phase": "休整期结束时",
+    "effect_type": "叠层",
+    "main_attrs": ["维多利亚"],
+    "sub_attrs": [],
+    "effect": {
+      "normal": "<休整期结束时>使已激活的【维多利亚】层数+1",
+      "advanced": "<休整期结束时>使已激活的【维多利亚】层数+2"
+    },
+    "stacking": {
+      "normal": { "target": ["维多利亚"], "stable": 1, "cap": null },
+      "advanced": { "target": ["维多利亚"], "stable": 2, "cap": null }
+    }
+  },
+  {
+    "name": "角峰",
+    "tier": "Ⅰ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": ["谢拉格"],
+    "sub_attrs": ["坚守"],
+    "effect": {
+      "normal": "<战斗中>对每名敌人首次造成伤害时使目标陷入2秒寒冷",
+      "advanced": "<战斗中>对每名敌人首次造成伤害时使目标陷入4秒寒冷"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "灰喉",
+    "tier": "Ⅰ",
+    "phase": "获得时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["精准"],
+    "effect": {
+      "normal": "<获得时>【精准】层数+2",
+      "advanced": "<获得时>【精准】层数+4"
+    },
+    "stacking": {
+      "normal": { "target": ["精准"], "stable": null, "cap": null },
+      "advanced": { "target": ["精准"], "stable": null, "cap": null }
+    }
+  },
+  {
+    "name": "深靛",
+    "tier": "Ⅰ",
+    "phase": "休整期结束时",
+    "effect_type": "叠层",
+    "main_attrs": ["伊比利亚"],
+    "sub_attrs": [],
+    "effect": {
+      "normal": "<休整期结束时>使已激活的【伊比利亚】层数+2",
+      "advanced": "<休整期结束时>使已激活的【伊比利亚】层数+4"
+    },
+    "stacking": {
+      "normal": { "target": ["伊比利亚"], "stable": 2, "cap": null },
+      "advanced": { "target": ["伊比利亚"], "stable": 4, "cap": null }
+    }
+  },
+  {
+    "name": "卡达",
+    "tier": "Ⅰ",
+    "phase": "休整期结束时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["奥术"],
+    "effect": {
+      "normal": "<休整期结束时>使已激活的【奥术】层数+1",
+      "advanced": "<休整期结束时>使已激活的【奥术】层数+2"
+    },
+    "stacking": {
+      "normal": { "target": ["奥术"], "stable": 1, "cap": null },
+      "advanced": { "target": ["奥术"], "stable": 2, "cap": null }
+    }
+  },
+  {
+    "name": "摆渡人",
+    "tier": "Ⅰ",
+    "phase": "获得时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["坚守", "不屈"],
+    "effect": {
+      "normal": "<获得时>【坚守】【不屈】层数+1",
+      "advanced": "<获得时>【坚守】【不屈】层数+2"
+    },
+    "stacking": {
+      "normal": { "target": ["坚守", "不屈"], "stable": null, "cap": null },
+      "advanced": { "target": ["坚守", "不屈"], "stable": null, "cap": null }
+    }
+  },
+  {
+    "name": "夏栎",
+    "tier": "Ⅰ",
+    "phase": "休整期结束时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["助力"],
+    "effect": {
+      "normal": "<休整期结束时>使当前已激活且层数最多的盟约层数+1（此干员在整备区也生效）",
+      "advanced": "<休整期结束时>使当前已激活且层数最多的盟约层数+2（此干员在整备区也生效）"
+    },
+    "stacking": {
+      "normal": { "target": ["动态"], "stable": 1, "cap": null },
+      "advanced": { "target": ["动态"], "stable": 2, "cap": null }
+    }
+  },
+  {
+    "name": "杰克",
+    "tier": "Ⅰ",
+    "phase": "战斗中",
+    "effect_type": "战斗",
+    "main_attrs": [],
+    "sub_attrs": ["突袭"],
+    "effect": {
+      "normal": "<战斗中>造成的伤害变为弱点伤害（根据敌人的防御力与法术抗性变换伤害类型）",
+      "advanced": "<战斗中>造成的伤害变为弱点伤害（根据敌人的防御力与法术抗性变换伤害类型）"
+    },
+    "stacking": {
+      "normal": { "target": [], "stable": 0, "cap": 0 },
+      "advanced": { "target": [], "stable": 0, "cap": 0 }
+    }
+  },
+  {
+    "name": "霜叶",
+    "tier": "Ⅰ",
+    "phase": "获得时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["灵巧"],
+    "effect": {
+      "normal": "<获得时>【灵巧】层数+2",
+      "advanced": "<获得时>【灵巧】层数+4"
+    },
+    "stacking": {
+      "normal": { "target": ["灵巧"], "stable": null, "cap": null },
+      "advanced": { "target": ["灵巧"], "stable": null, "cap": null }
+    }
+  },
+  {
+    "name": "拜松",
+    "tier": "Ⅰ",
+    "phase": "获得时",
+    "effect_type": "叠层",
+    "main_attrs": ["炎"],
+    "sub_attrs": [],
+    "effect": {
+      "normal": "<获得时>【炎】层数+2",
+      "advanced": "<获得时>【炎】层数+4"
+    },
+    "stacking": {
+      "normal": { "target": ["炎"], "stable": null, "cap": null },
+      "advanced": { "target": ["炎"], "stable": null, "cap": null }
+    }
+  },
+  {
+    "name": "褐果",
+    "tier": "Ⅰ",
+    "phase": "获得时",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["聚合"],
+    "effect": {
+      "normal": "<获得时>【聚合】层数+2",
+      "advanced": "<获得时>【聚合】层数+4"
+    },
+    "stacking": {
+      "normal": { "target": ["聚合"], "stable": null, "cap": null },
+      "advanced": { "target": ["聚合"], "stable": null, "cap": null }
+    }
+  },
+  {
+    "name": "烈夏",
+    "tier": "Ⅰ",
+    "phase": "战斗开始时",
+    "effect_type": "叠层",
+    "main_attrs": ["乌萨斯"],
+    "sub_attrs": [],
+    "effect": {
+      "normal": "<战斗开始时>使已激活的【乌萨斯】临时层数+4",
+      "advanced": "<战斗开始时>使已激活的【乌萨斯】临时层数+8"
+    },
+    "stacking": {
+      "normal": { "target": ["乌萨斯"], "stable": 0, "cap": null },
+      "advanced": { "target": ["乌萨斯"], "stable": 0, "cap": null }
+    },
+    "temp_stacking": {
+      "normal": 4,
+      "advanced": 8
+    }
+  },
+  {
+    "name": "陨星",
+    "tier": "Ⅰ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": [],
+    "sub_attrs": ["迅捷"],
+    "effect": {
+      "normal": "<战斗中>每次开启技能时使已激活的【迅捷】层数+1（每回合至多叠加2层）",
+      "advanced": "<战斗中>每次开启技能时使已激活的【迅捷】层数+2（每回合至多叠加4层）"
+    },
+    "stacking": {
+      "normal": { "target": ["迅捷"], "stable": 1, "cap": 2 },
+      "advanced": { "target": ["迅捷"], "stable": 2, "cap": 4 }
+    }
+  },
+  {
+    "name": "拉普兰德",
+    "tier": "Ⅰ",
+    "phase": "获得时",
+    "effect_type": "叠层",
+    "main_attrs": ["叙拉古"],
+    "sub_attrs": [],
+    "effect": {
+      "normal": "<获得时>【叙拉古】层数+2",
+      "advanced": "<获得时>【叙拉古】层数+4"
+    },
+    "stacking": {
+      "normal": { "target": ["叙拉古"], "stable": null, "cap": null },
+      "advanced": { "target": ["叙拉古"], "stable": null, "cap": null }
+    }
+  },
+  {
+    "name": "地灵",
+    "tier": "Ⅰ",
+    "phase": "战斗中",
+    "effect_type": "叠层",
+    "main_attrs": ["莱塔尼亚"],
+    "sub_attrs": ["独行"],
+    "effect": {
+      "normal": "<战斗中>攻击范围内每有一名敌人被击倒使已激活的【莱塔尼亚】层数+1（每回合至多叠加1层）",
+      "advanced": "<战斗中>攻击范围内每有一名敌人被击倒使已激活的【莱塔尼亚】层数+2（每回合至多叠加2层）"
+    },
+    "stacking": {
+      "normal": { "target": ["莱塔尼亚"], "stable": 1, "cap": 1 },
+      "advanced": { "target": ["莱塔尼亚"], "stable": 2, "cap": 2 }
+    }
+  }
+]

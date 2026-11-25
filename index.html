@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干员图鉴与 Ban 卡分析</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <button id="tab-wiki" class="nav-btn active">📖 图鉴检索</button>
+        <button id="tab-ban" class="nav-btn">🚫 Ban 卡记录</button>
+    </nav>
+
+    <!-- ================= 视图一：图鉴区 ================= -->
+    <div id="view-wiki" class="view-section active-view">
+        <header class="header">
+            <h1>干员图鉴</h1>
+            <p>数据加载中...</p>
+        </header>
+
+        <section class="search-panel">
+            <div class="panel-header">
+                <span class="panel-title">🔍 检索与过滤</span>
+                <button class="fold-btn" data-target="wiki-filter-body">收起/展开 ⬇️</button>
+            </div>
+            
+            <div id="wiki-filter-body" class="panel-body">
+                <div class="filter-group">
+                    <input type="text" id="search-name" placeholder="🔍 搜索干员名称...">
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">等阶：<button class="sort-btn" onclick="openSortModal('filter-tier-group', '等阶')">⚙️</button></span>
+                    <div id="filter-tier-group" class="checkbox-grid-small"></div>
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">核心盟约：<button class="sort-btn" onclick="openSortModal('filter-main-group', '核心盟约')">⚙️</button></span>
+                    <div id="filter-main-group" class="checkbox-grid-small"></div>
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">附加盟约：<button class="sort-btn" onclick="openSortModal('filter-sub-group', '附加盟约')">⚙️</button></span>
+                    <div id="filter-sub-group" class="checkbox-grid-small"></div>
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">触发阶段：<button class="sort-btn" onclick="openSortModal('filter-phase-group', '触发阶段')">⚙️</button></span>
+                    <div id="filter-phase-group" class="checkbox-grid-small"></div>
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">效果类型：<button class="sort-btn" onclick="openSortModal('filter-type-group', '效果类型')">⚙️</button></span>
+                    <div id="filter-type-group" class="checkbox-grid-small"></div>
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">我的标签：<button class="sort-btn" onclick="openSortModal('filter-usertags-group', '我的标签')">⚙️</button></span>
+                    <div id="filter-usertags-group" class="checkbox-grid-small"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="result-bar">
+            <span id="wiki-count" class="result-count">共 0 张卡牌</span>
+        </div>
+
+        <main id="wiki-card-container" class="card-grid"></main>
+    </div>
+
+    <!-- ================= 视图二：Ban 卡区 ================= -->
+    <div id="view-ban" class="view-section">
+        <header class="header">
+            <h1>Ban 卡计算器</h1>
+            <p>点击下方标签模拟 Ban 位</p>
+        </header>
+
+        <section class="ban-panel">
+            <div class="panel-header">
+                <span class="panel-title">🚫 模拟 Ban 选</span>
+                <button class="fold-btn" data-target="ban-filter-body">收起/展开 ⬇️</button>
+            </div>
+            <div id="ban-filter-body" class="panel-body">
+                <div class="ban-group">
+                    <h3>Ban 核心盟约 <button class="sort-btn" onclick="openSortModal('ban-main-checkboxes', 'Ban核心盟约')">⚙️</button></h3>
+                    <div id="ban-main-checkboxes" class="checkbox-grid"></div>
+                </div>
+                <div class="ban-group">
+                    <h3>Ban 附加盟约 <button class="sort-btn" onclick="openSortModal('ban-sub-checkboxes', 'Ban附加盟约')">⚙️</button></h3>
+                    <div id="ban-sub-checkboxes" class="checkbox-grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 控制面板 -->
+        <div class="ban-controls">
+            <div class="control-group">
+                <button id="btn-mode-survive" class="toggle-btn active">🟢 生存卡</button>
+                <button id="btn-mode-banned" class="toggle-btn">🔴 被Ban卡</button>
+            </div>
+            <div class="control-group">
+                <button id="btn-view-detail" class="toggle-btn active">详细视图</button>
+                <button id="btn-view-simple" class="toggle-btn">简略视图</button>
+            </div>
+        </div>
+
+        <!-- Ban 结果检索区 -->
+        <section class="search-panel" style="margin-top: 15px;">
+            <div class="panel-header">
+                <span class="panel-title">🔍 结果内检索</span>
+                <button class="fold-btn" data-target="ban-result-filter-body">收起/展开 ⬇️</button>
+            </div>
+            <div id="ban-result-filter-body" class="panel-body">
+                <div class="filter-group">
+                    <input type="text" id="ban-search-name" placeholder="🔍 在结果中搜索...">
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">等阶：<button class="sort-btn" onclick="openSortModal('ban-filter-tier-group', '等阶')">⚙️</button></span>
+                    <div id="ban-filter-tier-group" class="checkbox-grid-small"></div>
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">核心盟约：<button class="sort-btn" onclick="openSortModal('ban-filter-main-group', '核心盟约')">⚙️</button></span>
+                    <div id="ban-filter-main-group" class="checkbox-grid-small"></div>
+                </div>
+                <div class="checkbox-filter-row">
+                    <span class="filter-label">附加盟约：<button class="sort-btn" onclick="openSortModal('ban-filter-sub-group', '附加盟约')">⚙️</button></span>
+                    <div id="ban-filter-sub-group" class="checkbox-grid-small"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="result-bar">
+            <span id="ban-count" class="result-count">共 0 张卡牌</span>
+        </div>
+
+        <main id="ban-card-container" class="card-grid"></main>
+    </div>
+
+    <!-- ================= 排序弹窗 ================= -->
+    <div id="sort-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="sort-title" style="margin-bottom: 15px; color: #e2b046; text-align: center;">排序</h3>
+            <div id="sort-list" class="sort-list"></div>
+            <button class="close-modal-btn">保存并关闭</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
