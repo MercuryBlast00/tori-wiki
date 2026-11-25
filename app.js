@@ -1,8 +1,69 @@
 // app.js
 let allCards = [];
 const tierNames = ["Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ"];
+
+// 效果类型分类表：key 是干员名，value 是分类数组
+// 未来想给任何卡加类型，往 EFFECT_TYPE_OVERRIDES 里加一行即可
+const EFFECT_TYPE_OVERRIDES = {
+    "逻各斯": ["叠层", "战斗"],
+};
+
+// 旧数据里 effect_type 为"其他"的卡，按名字重新归类
+const OTHER_TYPE_MAP = {
+    "酒神": ["道具"],
+    "机械师": ["招募"],
+    "塔露拉": ["叠层"],
+    "缪尔赛思": ["道具"],
+    "凛御银灰": ["叠层加成"],
+    "歌蕾蒂娅": ["招募"],
+    "薇薇安娜": ["叠层加成"],
+    "铃兰": ["其他"],
+    "塞雷娅": ["其他"],
+    "Mon3tr": ["叠层加成"],
+    "阿米娅": ["叠层"],
+    "“暴躁铁皮”（隐藏）": ["战斗"],
+    "可露希尔": ["叠层"],
+    "温蒂": ["经济"],
+    "灵知": ["招募"],
+    "白铁": ["道具"],
+    "异客": ["道具"],
+    "山": ["战斗"],
+    "星极": ["经济"],
+    "车尔尼": ["道具"],
+    "卡涅利安": ["道具"],
+    "海沫": ["经济"],
+    "耶拉": ["道具"],
+    "忍冬": ["经济"],
+    "吉星": ["招募"],
+    "伊桑": ["招募"],
+    "乌有": ["经济"],
+    "凯瑟琳": ["道具"],
+    "盟约·辅助干员（隐藏）": ["战斗"],
+    "至简": ["经济"],
+    "奥尔佳": ["道具"],
+    "奥斯塔": ["经济"],
+    "波登可": ["经济"],
+    "承曦格雷伊": ["道具"],
+    "真理": ["经济"],
+};
+
+function normalizeEffectTypes(card) {
+    if (EFFECT_TYPE_OVERRIDES[card.name]) return EFFECT_TYPE_OVERRIDES[card.name];
+    if (Array.isArray(card.effect_type)) return card.effect_type;
+    if (card.effect_type === "其他") {
+        return OTHER_TYPE_MAP[card.name] || ["其他"];
+    }
+    return [card.effect_type];
+}
+
 let banResultMode = 'survive';
 let banViewMode = 'detail';
+
+
+
+
+
+
 
 // 读取保存的数据
 let userTagsData = JSON.parse(localStorage.getItem('cardUserTags')) || {};
@@ -28,7 +89,7 @@ document.querySelectorAll('.fold-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         const body = document.getElementById(e.target.getAttribute('data-target'));
         body.classList.toggle('hidden');
-        e.target.innerText = body.classList.contains('hidden') ? '展开 ⬇️' : '收起 ⬆️';
+        e.target.innerText = body.classList.contains('hidden') ? '展开' : '收起';
     });
 });
 
@@ -54,8 +115,8 @@ window.openSortModal = function(containerId, title) {
             <div class="sort-item" data-value="${item.value}">
                 <span>${item.text}</span>
                 <div>
-                    <button onclick="moveUp(this)">⬆️</button>
-                    <button onclick="moveDown(this)">⬇️</button>
+                    <button onclick="moveUp(this)">上移</button>
+                    <button onclick="moveDown(this)">下移</button>
                 </div>
             </div>
         `;
@@ -130,10 +191,11 @@ async function loadData() {
     }
     
     allCards.forEach(card => {
-        card.userTags = userTagsData[card.name] || [];
-    });
+    card.userTags = userTagsData[card.name] || [];
+    card.effect_types = normalizeEffectTypes(card);
+});
 
-    document.querySelector('.header p').innerText = `数据加载完成，共收录 ${allCards.length} 张干员！`;
+    document.querySelector('.header p').innerText = `数据加载完成，共收录 ${allCards.length} 位干员！`;
     
     extractAllOptions();
     initFilters();
@@ -153,14 +215,15 @@ function extractAllOptions() {
         card.sub_attrs.forEach(a => subs.add(a));
         const p = Array.isArray(card.phase) ? card.phase : [card.phase];
         p.forEach(v => phases.add(v));
-        types.add(card.effect_type);
+        card.effect_types.forEach(t => types.add(t));
         card.userTags.forEach(t => usertags.add(t));
     });
     allOptions.tiers = tierNames;
     allOptions.mains = Array.from(mains).sort();
     allOptions.subs = Array.from(subs).sort();
     allOptions.phases = Array.from(phases).sort();
-    allOptions.types = Array.from(types).sort();
+    const typeOrder = ["经济", "招募", "道具", "叠层", "战斗", "叠层加成", "其他"];
+    allOptions.types = typeOrder.filter(t => types.has(t));
     allOptions.usertags = Array.from(usertags).sort();
 }
 
@@ -219,8 +282,10 @@ function createCardHTML(card, isSimple = false) {
     }
 
     // 详细视图
-    const mainAttrs = card.main_attrs.length > 0 ? card.main_attrs.map(a => `<span class="badge">${a}</span>`).join('') : '<span style="color:#666;">无</span>';
-    const subAttrs = card.sub_attrs.length > 0 ? card.sub_attrs.map(a => `<span class="badge badge-sub">${a}</span>`).join('') : '<span style="color:#666;">无</span>';
+    const allAttrs = [...card.main_attrs, ...card.sub_attrs];
+    const attrsHTML = allAttrs.length > 0
+    ? `<div class="card-attrs">${allAttrs.map(a => `<span class="attr-pill">${a}</span>`).join('')}</div>`
+    : '';
     const phaseText = Array.isArray(card.phase) ? card.phase.join(' / ') : card.phase;
 
     const tagsHTML = card.userTags.map(tag => `<span class="user-tag" data-card="${card.name}" data-tag="${tag}">${tag}</span>`).join('');
@@ -235,14 +300,11 @@ function createCardHTML(card, isSimple = false) {
                 <span class="card-tier">${card.tier} 阶</span>
             </div>
             <div class="user-tags-container" id="tags-${card.name}">${tagsHTML}</div>
-            <div class="card-meta">${phaseText} | ${card.effect_type}</div>
-            <div class="card-attrs">
-                <div style="margin-bottom: 5px;">核心盟约：${mainAttrs}</div>
-                <div>附加盟约：${subAttrs}</div>
-            </div>
+            <div class="card-meta">${phaseText} | ${card.effect_types.map(t => `<span class="effect-type" data-type="${t}">${t}</span>`).join(' / ')}</div>
+           ${attrsHTML}
             <div class="card-effect">
-                <div style="margin-bottom: 5px;"><strong>普通：</strong>${card.effect.normal}</div>
-                <div><strong>精锐：</strong>${card.effect.advanced}</div>
+                <div class="effect-row effect-normal"><strong>普通：</strong>${card.effect.normal}</div>
+                <div class="effect-row effect-advanced"><strong>精锐：</strong>${card.effect.advanced}</div>
             </div>
         </div>
     `;
@@ -250,7 +312,7 @@ function createCardHTML(card, isSimple = false) {
 
 // 添加/移除标签
 window.addTag = function(cardName) {
-    const tag = prompt(`为【${cardName}】添加标签（如：必拿、T0）：`);
+    const tag = prompt(`给「${cardName}」加个标签：`);
     if (!tag || tag.trim() === '') return;
     const cleanTag = tag.trim();
     const card = allCards.find(c => c.name === cardName);
@@ -265,7 +327,7 @@ document.addEventListener('click', (e) => {
     if (e.target.classList.contains('user-tag')) {
         const cardName = e.target.getAttribute('data-card');
         const tag = e.target.getAttribute('data-tag');
-        if (confirm(`确定移除标签【${tag}】吗？`)) {
+        if (confirm(`删除「${tag}」标签？`)) {
             const card = allCards.find(c => c.name === cardName);
             card.userTags = card.userTags.filter(t => t !== tag);
             saveUserTags();
@@ -294,7 +356,7 @@ function renderCards(cardsToShow, container, countId, isSimple = false) {
     else container.classList.remove('simple-mode');
 
     container.innerHTML = "";
-    document.getElementById(countId).innerText = `共 ${cardsToShow.length} 张卡牌`;
+    document.getElementById(countId).innerText = `共 ${cardsToShow.length} 位干员`;
 
     if (cardsToShow.length === 0) {
         container.innerHTML = "<p style='text-align:center; width:100%; color:#888;'>没有找到符合条件的卡牌哦~</p>";
@@ -312,7 +374,7 @@ function matchFilters(card, filters) {
         const p = Array.isArray(card.phase) ? card.phase : [card.phase];
         if (!p.some(v => filters.phases.includes(v))) return false;
     }
-    if (filters.types && filters.types.length > 0 && !filters.types.includes(card.effect_type)) return false;
+    if (filters.types && filters.types.length > 0 && !card.effect_types.some(t => filters.types.includes(t))) return false;
     if (filters.usertags && filters.usertags.length > 0 && !card.userTags.some(t => filters.usertags.includes(t))) return false;
     if (filters.name && !card.name.toLowerCase().includes(filters.name)) return false;
     return true;
